@@ -1,0 +1,66 @@
+﻿@using ExamProject.Models
+    @model VMmodel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h3 class="control-label">New Employee</h3>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" class="form-control" asp-for="employee.Name" />
+                        <span asp-validation-for="employee.Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">phone</label>
+                        <input type="text" class="form-control" asp-for="employee.phone" />
+                        <span asp-validation-for="employee.phone"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input type="text" class="form-control"  asp-for="employee.Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Country</label>
+                        <select class="form-control" asp-items='new SelectList(Model.countries,"id","Name")' asp-for="employee.country_id"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Department</label>
+                        <select class="form-control" asp-items='new SelectList(Model.departments,"id","DepartmentName")' asp-for="employee.department_id"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Bdate</label>
+                        <input type="text" class="form-control" asp-for="employee.date" />
+                        <span asp-validation-for="employee.date"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="file1" class="form-control" style="display:none" asp-for="imgProfile" />
+
+                        <label class="btn btn-primary" for="file1">Image</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" asp-action="SaveData" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

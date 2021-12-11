@@ -1,0 +1,80 @@
+﻿@using ExamProject.data
+@model List<Department>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Department Name</th>
+                        <th>Minimun Salary</th>
+                        <th>Maximum Salary</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (Department item in Model)
+                    {
+                    <tr>
+                        <td>@item.DepartmentName</td>
+                        <td>@item.MinimumSalary</td>
+                        <td>@item.MaximumSalary</td>
+                        <td><a asp-action="EmployeeList">Details</a></td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <input type="submit" value="NewEmployee" class="btn btn-primary" asp-action="Index" />
+            </div>
+            <table class="table">
+                <thead>
+                    
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @if ((bool)ViewData["isfull"] == true)
+                    {
+                        @foreach(Employee item in )
+                        <tr>
+                            <td><img src="@it" style="width:50px;height:50px;" /></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                    }
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
